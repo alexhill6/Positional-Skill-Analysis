@@ -300,6 +300,8 @@ ggplot(
 
 library(mgcv)
 
+set.seed(123)
+
 # convert route and position to factors
 model_data <- route_curves_model |>
   filter(!is.na(routeRan)) |>
