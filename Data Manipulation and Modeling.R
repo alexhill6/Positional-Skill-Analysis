@@ -247,18 +247,18 @@ ggplot(
   ) +
   labs(
     title = "Receiver Separation by Route Progression",
+    subtitle = "Beyond initial distance from the defender at the snap,\nseparation typically builds steadily past the midway point of a route",
     x = "Route Progress",
     y = "Separation (yards)"
   )
 
 ## plot of player separation tendencies
-
 library(ggrepel)
 label_data <- bind_rows(
-  slice_max(player_profiles, release_sep, n = 5),
-  slice_min(player_profiles, release_sep, n = 5),
-  slice_max(player_profiles, growth, n = 5),
-  slice_min(player_profiles, growth, n = 5)
+  slice_max(player_profiles, release_sep, n = 7),
+  slice_min(player_profiles, release_sep, n = 7),
+  slice_max(player_profiles, growth, n = 7),
+  slice_min(player_profiles, growth, n = 7)
 ) |>
   distinct()
 
@@ -358,11 +358,3 @@ player_soe |>
 player_soe |>
   filter(position == "TE") |>
   head(15)
-
-###Steps
-
-# Build Separation curves
-# Build model with route type, etc. attached to curves
-# Identify player skill differences
-# Make viz
-# Summarize results
